@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Router, Switch } from "react-router-dom";
+import history from "./Helpers/history";
+import Index from "./Containers/Index";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const thelist = [
+		{ id: 1, name: "Fabian1" },
+		{ id: 2, name: "Fabian2" },
+		{ id: 3, name: "Fabian3" }
+	];
+
+	return (
+		<Router history={history}>
+			<Switch>
+				<Route path="/" render={() => <Index thelist={thelist} />} />
+			</Switch>
+		</Router>
+	);
 }
 
 export default App;
